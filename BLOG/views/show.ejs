@@ -1,11 +1,12 @@
 <% include ./partials/header %>
-
-<ul class="breadcrumb down">
-  <li><a href="/">Home</a></li>
-  <li><a href="/blogs/new">New Post</a></li>
-  <li class="active"><a href="/blogs/<%= blog._id %>">Show</a></li>
-  <li><a href="/blogs/<%= blog._id %>/edit">Edit</a></li>
-</ul>
+<div class="bread-space">
+  <ul class="breadcrumb down ">
+    <li class="link-space"><a href="/">Home</a></li>
+    <li class="link-space"><a href="/blogs/new">New Post</a></li>
+    <li class="active link-space"><a href="/blogs/<%= blog._id %>">Show</a></li>
+    <li class="link-space"><a href="/blogs/<%= blog._id %>/edit">Edit</a></li>
+  </ul>
+</div>
 
 <div class="container down ">
   <div class="row">
@@ -18,7 +19,7 @@
         <div class="text-center date-spacing">
           <span><%= blog.created.toDateString() %></span>
         </div>
-        <p><%- blog.body %></p>
+        <p class="text-justify"><%- blog.body %></p>
       </div>
       <div class="text-center">
         <a

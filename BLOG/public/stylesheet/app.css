@@ -1,4 +1,5 @@
-.glyphicon {
+.fas,
+.far {
   font-size: 2em;
 }
 
@@ -29,4 +30,12 @@
 
 .link-space {
   padding: 20px;
+}
+.bread-space {
+  padding: 5px;
+  padding-bottom: 0;
+}
+
+body {
+  background: rgba(239, 242, 250, 0.986);
 }
