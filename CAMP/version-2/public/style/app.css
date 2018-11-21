@@ -1,0 +1,33 @@
+.fas,
+.far {
+  font-size: 2em;
+}
+
+.down {
+  margin-top: 75px;
+}
+
+.shift-left {
+  padding-left: 90px;
+}
+
+.show-thumbnail-fill {
+  width: -webkit-fill-available;
+}
+
+.date-spacing {
+  padding: 15px;
+}
+
+.link-space {
+  padding: 20px;
+}
+
+.bread-space {
+  padding: 5px;
+  padding-bottom: 0;
+}
+
+body {
+  background: rgba(239, 242, 250, 0.986);
+}
