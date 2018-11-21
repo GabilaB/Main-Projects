@@ -1,13 +1,39 @@
 <% include ./partials/header %>
 
-<div class="container">
+<ul class="breadcrumb down">
+  <li><a href="/">Home</a></li>
+  <li><a href="/blogs/new">New Post</a></li>
+  <li class="active"><a href="/blogs/<%= blog._id %>">Show</a></li>
+  <li><a href="/blogs/<%= blog._id %>/edit">Edit</a></li>
+</ul>
+
+<div class="container down ">
   <div class="row">
-    <div class="thumbnail ">
-      <h1 class="text-center"><%= blog.title %></h1>
-      <img src="<%= blog.image %>" style="width:80%" />
+    <div class="thumbnail show-thumbnail-fill">
+      <h1 class="text-center date-spacing"><%= blog.title %></h1>
+      <div class="text-center">
+        <img src="<%= blog.image %>" style="width:80%" />
+      </div>
       <div class="caption">
-        <span class="text-center"><%= blog.created.toDateString() %></span>
+        <div class="text-center date-spacing">
+          <span><%= blog.created.toDateString() %></span>
+        </div>
         <p><%- blog.body %></p>
+      </div>
+      <div class="text-center">
+        <a
+          class="btn btn-lg btn-primary"
+          href="/blogs/<%= blog._id %>/edit"
+          role="button"
+          >Edit</a
+        >
+        <form
+          action="/blogs/<%= blog._id %>?_method=DELETE"
+          method="POST"
+          id="delete"
+        >
+          <button class="btn btn-lg btn-danger" type="submit">Delete</button>
+        </form>
       </div>
     </div>
   </div>

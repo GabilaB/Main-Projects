@@ -1,3 +1,32 @@
 .glyphicon {
   font-size: 2em;
 }
+
+#delete {
+  display: inline;
+}
+
+.down {
+  padding: 80px;
+  padding-bottom: 0px;
+}
+
+.shift-left {
+  padding-left: 90px;
+}
+
+.group {
+  padding: 33px;
+}
+
+.show-thumbnail-fill {
+  width: -webkit-fill-available;
+}
+
+.date-spacing {
+  padding: 15px;
+}
+
+.link-space {
+  padding: 20px;
+}
