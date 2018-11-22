@@ -1,8 +1,8 @@
 <% include ../partials/header %>
 
-<div class="container">
-  <div class="">
-    <h1>NEW CAMP</h1>
+<div class="container down-show">
+  <div>
+    <h1 class="text-center">NEW CAMP</h1>
 
     <form action="/campgrounds" method="POST">
       <div class="form-group">
@@ -35,7 +35,9 @@
           placeholder="Description"
         />
       </div>
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="text-center">
+        <button type="submit" class="btn btn-primary ">Submit</button>
+      </div>
     </form>
 
     <a href="/campgrounds">Back</a>

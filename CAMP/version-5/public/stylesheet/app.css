@@ -6,6 +6,9 @@
 .down {
   margin-top: 75px;
 }
+.down-show {
+  margin-top: 120px;
+}
 
 .shift-left {
   padding-left: 90px;
@@ -38,4 +41,24 @@ body {
 
 .thumbnail {
   padding: 0;
+}
+
+h3 {
+  padding: 10px;
+}
+
+.card-style {
+  width: 20rem;
+}
+
+.card-row-style {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 36px;
+}
+.card-bottom-space {
+  padding-bottom: 5px;
+  padding-right: 0;
+  padding-left: 0;
+  margin: 0;
 }
