@@ -130,3 +130,11 @@ app.post("/campgrounds/:id/comments", function(req, res) {
 app.listen(1010, "localhost", function() {
   console.log("Blog Server launched");
 });
+
+// LOAD UP MONGOD
+// "C:\Program Files\MongoDB\Server\4.0\bin\mongod.exe" --dbpath="c:\data\db"
+
+//and the MONGO
+// "C:\Program Files\MongoDB\Server\4.0\bin\mongo.exe"
+
+//then fire on
