@@ -10,12 +10,11 @@ var express = require("express"),
 seedDB = require("./seed");
 
 // =============================================
-// ROUTES CONFIG
+// ROUTES CONNECT
 //===============================================
 var commentRoutes = require("./routes/comments"),
   campgroundRoutes = require("./routes/campgrounds"),
   indexRoutes = require("./routes/index");
-//=================================================
 
 seedDB();
 mongoose.connect("mongodb://localhost/CAMP");
@@ -55,11 +54,15 @@ app.use(function(req, res, next) {
 // =============================================
 // USE ROUTES
 //===============================================
-app.use("/", indexRoutes);
-app.use("/campground/:id/comments", commentRoutes);
-app.use("/campgrounds", campgroundRoutes);
+app.use(indexRoutes);
+app.use(commentRoutes);
+app.use(campgroundRoutes);
 
-app.listen(8080, "localhost", function() {
+// =============================================
+// PLUG
+//===============================================
+
+app.listen(1010, "localhost", function() {
   console.log("Blog Server launched");
 });
 
