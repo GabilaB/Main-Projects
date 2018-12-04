@@ -9,6 +9,10 @@ var express = require("express"),
   User = require("./models/user"),
   seedDB = require("./seed");
 
+// =============================================
+//Require routes
+//===============================================
+
 var commentRoutes = require("./routes/comments"),
   campgroundRoutes = require("./routes/campgrounds"),
   authRoutes = require("./routes/index");
@@ -45,17 +49,13 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get("/", function(req, res) {
-  res.render("landing");
-});
-
 // =============================================
 //Reuire all iimported routes
 //===============================================
 
-app.use(authRoutes);
-app.use(campgroundRoutes);
-app.use(commentRoutes);
+app.use("/", authRoutes);
+app.use("/campgrounds", campgroundRoutes);
+app.use("/campgrounds/:id/comments", commentRoutes);
 
 app.listen(8080, "localhost", function() {
   console.log("Blog Server launched");

@@ -1,13 +1,16 @@
 var express = require("express"),
   passport = require("passport"),
   User = require("../models/user");
-router = express.Router;
+router = express.Router();
 
 // =============================================
 // AUTH ROUTES
 //===============================================
 
 //SHOW REGISTER FORM
+router.get("/", function(req, res) {
+  res.render("landing");
+});
 
 router.get("/register", function(req, res) {
   res.render("register");

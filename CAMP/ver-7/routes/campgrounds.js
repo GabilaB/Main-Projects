@@ -1,7 +1,8 @@
 var express = require("express"),
-  router = express.Router;
+  Campground = require("../models/campground");
+router = express.Router();
 
-router.get("/campgrounds", function(req, res) {
+router.get("/", function(req, res) {
   // res.render("campgrounds", { campgrounds: campgrounds });
 
   // Get all camps from DB
@@ -10,14 +11,13 @@ router.get("/campgrounds", function(req, res) {
       console.log(err);
     } else {
       res.render("campgrounds/index", {
-        campgrounds: allCampgrounds,
-        currentUser: req.user
+        campgrounds: allCampgrounds
       });
     }
   });
 });
 
-router.post("/campgrounds", function(req, res) {
+router.post("/", function(req, res) {
   //get DatA and add to campground array
   var name = req.body.name;
   var image = req.body.image;
@@ -35,12 +35,13 @@ router.post("/campgrounds", function(req, res) {
   });
 });
 
-router.get("/campgrounds/new", function(req, res) {
+//NEW - show form to create new campground
+router.get("/new", function(req, res) {
   res.render("campgrounds/new");
 });
 
 // Shows info about one campground
-router.get("/campgrounds/:id", function(req, res) {
+router.get("/:id", function(req, res) {
   //find the Campground by ID
   Campground.findById(req.params.id)
     .populate("comments")
