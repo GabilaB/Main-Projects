@@ -1,0 +1,67 @@
+.fas,
+.far {
+  font-size: 2em;
+}
+
+.down {
+  margin-top: 75px;
+}
+.down-show {
+  margin-top: 120px;
+}
+
+.shift-left {
+  padding-left: 90px;
+}
+
+.show-thumbnail-fill {
+  width: -webkit-fill-available;
+}
+
+.date-spacing {
+  padding: 15px;
+}
+
+.link-space {
+  padding: 20px;
+}
+.reg-link-space {
+  padding: 10px;
+}
+
+.bread-space {
+  padding: 5px;
+  padding-bottom: 0;
+}
+
+body {
+  background: rgba(239, 242, 250, 0.986);
+}
+
+.thumbnail img {
+  width: 100%;
+}
+
+.thumbnail {
+  padding: 0;
+}
+
+h3 {
+  padding: 10px;
+}
+
+.card-style {
+  width: 20rem;
+}
+
+.card-row-style {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 36px;
+}
+.card-bottom-space {
+  padding-bottom: 5px;
+  padding-right: 0;
+  padding-left: 0;
+  margin: 0;
+}
