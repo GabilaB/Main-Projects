@@ -23,7 +23,7 @@ const upload = multer({
   }
 }).single("myImage");
 
-//Check File Type
+//Check File Typees
 
 function checkFileType(file, cb) {
   //Allowed extensions
