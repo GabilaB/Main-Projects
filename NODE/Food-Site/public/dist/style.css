@@ -696,7 +696,7 @@ label {
     .nav__link--logo svg {
       width: 100%; }
   .heart-count:before {
-    content: '\2665\FE0F';
+    content: "\2665\FE0F";
     margin-right: 1rem; } }
 
 .table {
