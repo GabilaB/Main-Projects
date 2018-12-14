@@ -67,7 +67,7 @@ router.get("/:id", function(req, res) {
       }
     });
 });
-
+ 
 // EDIT CAMPGROUND ROUTWE
 router.get("/:id/edit", middleware.checkCampgroundOwnership, function(
   req,
