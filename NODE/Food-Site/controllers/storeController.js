@@ -11,7 +11,7 @@ const multerOptions = {
     if (isPhoto) {
       next(null, true);
     } else {
-      next({ message: "That filetype isn't allowed" }, false);
+      next({ message: "That filetype isn't allowed!" }, false);
     }
   }
 };
@@ -93,7 +93,7 @@ exports.updateStore = async (req, res) => {
   res.redirect(`/stores/${store._id}/edit`);
 };
 
-exports.getStoreBySlug = async (req, res) => {
+exports.getStoreBySlug = async (req, res, next) => {
   const store = await Store.findOne({
     slug: req.params.slug
   }).populate("author");
@@ -109,4 +109,27 @@ exports.getStoreByTag = async (req, res) => {
   const [tags, stores] = await Promise.all([tagsPromise, storesPromise]);
 
   res.render("tags", { tags, title: "Tags", tag, stores });
+};
+
+exports.searchStores = async (req, res) => {
+  const stores = await Store
+    //Find all the stores with a given query
+    .find(
+      {
+        $text: {
+          $search: req.query.q
+        }
+      },
+      {
+        score: { $meta: "textScore" }
+      }
+    )
+    // Rank stores
+    .sort({
+      score: { $meta: "textScore" }
+    })
+    //limit to five stores
+    .limit(5);
+
+  res.json(stores);
 };
