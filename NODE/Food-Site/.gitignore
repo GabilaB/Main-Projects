@@ -1,1 +1,6 @@
 node_modules/
+haters/
+.log
+.idea
+variable.env
+variable.env.now
