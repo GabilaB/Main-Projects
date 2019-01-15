@@ -5,6 +5,7 @@ const CardList = ({ robots }) => {
   return (
     <div>
       {robots.map((user, i) => {
+        //randormize card appearances
         return (
           <Card
             key={i}
