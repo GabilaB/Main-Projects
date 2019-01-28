@@ -1,6 +1,6 @@
 import React from "react";
 
-const Ninjas = ({ ninjas }) => {
+const Ninjas = ({ ninjas, deleteNinja }) => {
   // const ninjaList = ninjas.map(ninja => {
   //   if (ninja.age > 30) {
   //     return (
@@ -15,11 +15,18 @@ const Ninjas = ({ ninjas }) => {
   //   }
   // });
   const ninjaList = ninjas.map(ninja => {
-    return ninja.age > 40 ? (
+    return ninja.age > 10 ? (
       <div className="ninja" key={ninja.id}>
         <div>Name: {ninja.name}</div>
         <div>Age : {ninja.age}</div>
         <div>belt: {ninja.belt}</div>
+        <button
+          onClick={() => {
+            deleteNinja(ninja.id);
+          }}
+        >
+          Delete Ninja
+        </button>
       </div>
     ) : null;
   });
