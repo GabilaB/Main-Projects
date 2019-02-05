@@ -1,5 +1,5 @@
 import React from "react";
-import Rainbow from "../HOC/rainbow";
+// import Rainbow from "../HOC/rainbow";
 
 const About = () => {
   return (
