@@ -5,7 +5,7 @@ let pdfDoc = null,
   pageIsRendering = false,
   pageNumIsPending = null;
 
-const scale = 1.5,
+const scale = 2,
   canvas = document.querySelector("#pdf-render"),
   ctx = canvas.getContext("2d");
 
@@ -36,15 +36,65 @@ const renderPage = num => {
       }
     });
 
-    // Output Cirrent Page
+    // Output Current Page
 
     document.querySelector("#page-num").textContent = num;
   });
 };
 
+//Check for pages rendered
+
+const queueRenderPage = num => {
+  if (pageIsRendering) {
+    pageNumIsPending = num;
+  } else {
+    renderPage(num);
+  }
+};
+
+// Show Prev Page
+
+const showPreviousPage = () => {
+  if (pageNum <= 1) {
+    return;
+  }
+  pageNum--;
+  queueRenderPage(pageNum);
+};
+// Show Next Page
+
+const showNextPage = () => {
+  if (pageNum >= pdfDoc.numPages) {
+    return;
+  }
+  pageNum++;
+  queueRenderPage(pageNum);
+};
+
 //Get Document
-pdfjsLib.getDocument(url).promise.then(pdfDoc_ => {
-  pdfDoc = pdfDoc_;
-  document.querySelector("#page-count").textContent = pdfDoc.numPages;
-  renderPage(pageNum);
-});
+pdfjsLib
+  .getDocument(url)
+  .promise.then(pdfDoc_ => {
+    pdfDoc = pdfDoc_;
+    document.querySelector("#page-count").textContent = pdfDoc.numPages;
+    renderPage(pageNum);
+  })
+  .catch(err => {
+    //Display Error
+    const div = document.createElement("div");
+    div.className = "error";
+    div.appendChild(document.createTextNode(err.message));
+    document.querySelector("body").insertBefore(div, canvas);
+
+    //remove top bar
+
+    document.querySelector(".top-bar").style.display = "none";
+  });
+
+// Button Events
+
+document
+  .querySelector("#prev-page")
+  .addEventListener("click", showPreviousPage);
+
+document.querySelector("#next-page").addEventListener("click", showNextPage);
