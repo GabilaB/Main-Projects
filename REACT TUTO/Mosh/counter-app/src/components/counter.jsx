@@ -3,12 +3,18 @@ import React, { Component } from "react";
 class counter extends Component {
   state = {
     // count: 3,
-    tags: ["tag1", "tag2", "tag3"]
+    count: this.props.value
   };
 
-  handleIncrement() {
-    console.log("clicked");
-  }
+  // constructor() {
+  //   super();
+  //   this.handleIncrement = this.handleIncrement.bind(this);
+  // }
+
+  handleIncrement = () => {
+    // console.log(product);
+    this.setState({ count: this.state.count + 1 });
+  };
 
   render() {
     return (
