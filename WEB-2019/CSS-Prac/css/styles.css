@@ -1,0 +1,23 @@
+body {
+  margin: 0;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+.bot {
+  background-color: aqua;
+  height: 200px;
+  width: 200px;
+}
+
+.mid {
+  background-color: yellowgreen;
+  height: 200px;
+  width: 200px;
+}
+
+.top {
+  background-color: antiquewhite;
+}
